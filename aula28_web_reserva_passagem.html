@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+    <html lang="pt-BR">
+        <meta charset="utf-8"/>
+        <title>Aula 28 - Reserva de Passagens.</title>
+    <head>
+        <style type="text/css">
+            fieldset {
+                background-color: lightskyblue;
+            }
+            label   {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                
+            }
+            body   {
+                background-color: lightsalmon;
+            }
+            h1{
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-style: italic;
+                font-size: xx-large;
+            }
+        </style>
+
+        
+        <script>
+           
+            
+            var reserva  =  new Array   ()  ;
+
+
+            function mostrar_cadastro() {
+            //mostrar o cadastro
+            var saida = '';
+            for (i = 0; i < cadastro.length; i++) {
+                saida += cadastro[i].nome + ' - ' + cadastro[i].cpf
+                    + ' - ' + cadastro[i].destino + '<br />';
+            } // fim do for
+            document.getElementById('saida').innerHTML = saida;
+            document.frmreserva.reset();
+            document.frmreserva.txtnome.focus();
+        }
+
+            function cadastro() {
+            //ler todos os campos do formulário
+            var nome = document.frmreserva.txtnome.value;
+            var cpf = document.frmreserva.txtcpf.value;
+            var rg = document.frmreserva.txtrg.value;
+            var passaporte = document.frmreserva.txtpassaporte.value;
+            var dt_nascimento   = document.frmreserva.txtdt_nascimento.value;
+            var nacionalidade   =document.frmreserva.txtnacionalidade.value;
+            var email   =   document.frmreserva.txtemail.value;
+            var dt_chegada  = document.frmreserva.txtdt_chegada.value;
+            var destino = document.frmreserva.txtdestino.value;
+            var roteiro = document.frmreserva.txtroteiro.value;
+            var dt_saida = document.frmreserva.txtdt_saida.value;
+            //guardar no objeto 
+            var cadastro = { "nome": nome, "cpf": cpf, "rg": rg, "passaporte": passaporte,  "dt_nascimento":dt_nascimento,
+                            "nacionalidade":nacionalidade, "email":email, "dt_chegada":dt_chegada, "destino":destino, "roteiro":roteiro, "dt_saida":dt_saida};
+            //guardar o objeto na lista
+            reserva.push(cadastro);
+            window.alert('Cadastro Realizado!!');
+            mostrar_cadastro(cadastro);
+        } // fim da função
+            
+        </script>
+    </head>
+    <body>
+        <h1>Formulário De Reserva.</h1>
+        <form   action="#"  method="post"   name="frmreserva"></form>
+        <fieldset>
+            <legend>Dados da Reserva</legend>
+        
+            <label>Nome:</label>
+            <input  type="text" id="nome"   name="nome" value=""
+                    placeholder="Digite o Nome...."
+                    style="width: 20 em"   required/><br/>
+        <br/>
+            <label>CPF:</label>
+            <input  type="number"   id="number" name="number" value=""
+                    placeholder="Digite seu cpf...."
+                    style="width: 20 em"    required/>  <br/>
+        <br/>
+        <label>RG:</label>
+            <input  type="number"   id="number" name="number"   value=""
+                    placeholder="Digite seu rg...."
+                    style="width: 20 em"    required/>  <br/>
+        <br/>
+        <label>Passaporte:</label>
+            <input  type="number"   id="number" name="number"   value=""
+                    placeholder="Digite o número do passaporte...."
+                    style="width: 20 em"    required/>  <br/>
+        <br/>
+        <label>Data de nascimento:</label>
+            <input  type="date"   id="dt_nascimento" name="dt_nascimento"   value=""/> <br/>
+        <br/>
+        <label>Nacionalidade:</label>
+        <select name="nacionalidade">
+            <option value="bra">Brasileiro</option>
+            <option value="ame">Norte Americano</option>
+            <option value="can">Canadense</option>
+            <option value="por">Português</option>
+            </select><br/>
+        <br/>
+        <label>E-mail:</label>
+            <input  type="email"    id="email"  name="email"        value=""/>
+            <br/><br/>
+
+        <label>Data de Chegada:</label>
+            <input  type="date" id="dt_chegada" name="dt_chegada"   value=""/><br/><br/>
+
+            <fieldset>
+                <label>Destino:</labe>
+                <select name="destino">
+                    <option value="sp">São Paulo</option>
+                    <option value="mg">Minas Gerais</option>
+                    <option value="rs">Rio Grande do Sul</option>
+                    <option value="ro">Rondônia</option>
+                    </select><br/>
+                <br/>
+                <label>Roteiro:
+                <input type="radio" name="aereo"    value=""  />Aéreo</label>
+                <input  type="radio"name="rodoviario"value=""/>Rodoviário</label>
+                <br/><br/>
+                <label>Data de Saída:</label>
+                <input  type="date" id="dt_saida"   name="dt_saida" value="" />
+                <label>
+
+                </label>
+                <br/><br/>
+            </fieldset>
+            <label>Newsletter</label>
+            <label>
+                    <input  type="checkbox" name="newsletter"   value="1"   checked />
+                            Gostaria de receber a nossa Newsletter?</label>  <br/><br/>    
+        
+        
+<button class="botao submit"    type="button"   
+onclick="reserva()">Cadastro</button>
+<button class="botao submit"    type="button"      
+onclick="return mostrar_cadastro()" >Requerer Reserva</button>
+</fieldset>
+</form>
+</body>
+</html>       
+                    
+        
+        
+            
+            
+                
+            
+            
+                
+                
+                   
+                     
+                    
+                        
+                    
+                    
+                        
+                    
+                    
+                        
